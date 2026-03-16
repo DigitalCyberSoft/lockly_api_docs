@@ -17,7 +17,7 @@ API endpoints
    :<json string acct: The user's account name.
    :<json string dv: The door lock identifier. See also: :http:post:`qrylknew`.
 
-   :>json list ekeyList: A list of e-key objects.
+   :>json list tp: A list of e-key/temporary password objects.
 
    **E-key object fields**
 
@@ -58,7 +58,7 @@ API endpoints
 
       {
         "cod": "200",
-        "ekeyList": [
+        "tp": [
           {
             "mediumId": 12345,
             "deviceId": "300030001234567890123456",
