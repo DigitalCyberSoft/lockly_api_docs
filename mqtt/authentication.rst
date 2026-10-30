@@ -1,5 +1,13 @@
-Connecting to the MQTT broker
-=============================
+The hub's Aliyun IoT link
+=========================
+
+.. warning::
+
+   This page describes the **hub's own** connection to Alibaba Cloud IoT. It is
+   documented for completeness. **A client/integration must not connect with
+   these credentials** — doing so impersonates the hub and knocks it offline,
+   breaking the BLE relay. For app-style real-time push and commands, use the
+   Lockly device channel instead: :doc:`client_channel`.
 
 Obtaining MQTT details
 ----------------------

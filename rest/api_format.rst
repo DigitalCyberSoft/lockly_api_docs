@@ -11,12 +11,44 @@ REST API requests are made to the following endpoints:
 
 All documented endpoints use the first listed endpoint, unless stated otherwise.
 
+Transport details (🔎 from app 3.2.9 / 3.3.4):
+
+- **Method:** ``POST`` for all endpoints.
+- **Content-Type:** ``application/json; charset=UTF-8``.
+- **User-Agent:** ``DoorLocker/329 (Pixel 8 Pro; Android 16)`` (varies by device/version).
+- **Accept-Encoding:** ``gzip``.
+- **Authorization:** ``Bearer <jwt>`` on all authenticated endpoints (see :doc:`endpoints/login`).
+
 Message format
 --------------
 
 All API messages follow the following format.
 
 JSON request fields in the endpoint documentation refer to the contents of the ``para`` field.
+
+.. note::
+
+   The field list below is from the original 2.3.7-era documentation and is still
+   broadly correct. Newer app builds (3.2.x / 3.3.x, 🔎 code-traced) send a fixed
+   "common body" on every request except ``login``:
+
+   .. sourcecode:: json
+
+      {
+        "appType": "LOCKLY",
+        "ctry":    "",
+        "dvid":    "",
+        "locale":  "EN",
+        "os":      "android",
+        "rid1":    "",
+        "rid2":    "",
+        "tk":      "",
+        "ver":     "329",
+        "versionName": "3.2.9"
+      }
+
+   ``appType`` is new; ``ver`` / ``versionName`` track the app version. ``rid1`` /
+   ``rid2`` (push tokens) and ``dvid`` are frequently empty for a non-app client.
 
 .. http:any:: (string:endpoint)
 
